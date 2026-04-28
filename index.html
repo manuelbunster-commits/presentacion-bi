@@ -30,6 +30,7 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 0.82rem; color: var(--mid); text-decoration: none; font-weight: 500; }
   .nav-links a:hover { color: var(--dark); }
+  .nav-links li.active a { color: var(--blue); font-weight: 600; }
   .nav-logo { background: #0f172a; border-radius: 8px; padding: 0.35rem 0.75rem; display: flex; align-items: center; }
   .nav-logo img { height: 28px; display: block; filter: brightness(0) invert(1); }
 
@@ -75,6 +76,30 @@
   footer .note { font-size: 0.75rem; color: var(--light); }
   footer .brand { font-size: 0.75rem; color: var(--light); font-weight: 600; }
 
+  /* Oportunidad */
+  .opp-bar-wrap { margin: 2rem 0 1rem; }
+  .opp-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 600; color: var(--mid); margin-bottom: 0.5rem; }
+  .opp-bar-track { background: #e2e8f0; border-radius: 999px; height: 14px; overflow: hidden; }
+  .opp-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #2563eb, #60a5fa); width: 10%; transition: width 1s ease; }
+  .opp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  .opp-card { border-radius: 14px; padding: 1.5rem; }
+  .opp-card.dark { background: var(--dark); color: white; }
+  .opp-card.mid  { background: #1e3a5f; color: white; }
+  .opp-card.lt   { background: var(--blue-lt); border: 1px solid #bfdbfe; }
+  .opp-card .oc-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.5rem; }
+  .opp-card.lt .oc-label { color: var(--mid); opacity: 1; }
+  .opp-card .oc-value { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.025em; line-height: 1; margin-bottom: 0.3rem; }
+  .opp-card.lt .oc-value { color: var(--blue); }
+  .opp-card .oc-sub { font-size: 0.78rem; opacity: 0.6; }
+  .opp-card.lt .oc-sub { color: var(--mid); opacity: 1; }
+
+  .quote-box { background: var(--dark); color: white; border-radius: 16px; padding: 2rem 2.2rem; margin-top: 2rem; position: relative; overflow: hidden; }
+  .quote-box::before { content: '"'; position: absolute; top: -0.5rem; left: 1.2rem; font-size: 8rem; color: rgba(255,255,255,0.06); font-family: Georgia, serif; line-height: 1; }
+  .quote-text { font-size: 1.15rem; font-weight: 600; line-height: 1.6; color: white; position: relative; z-index: 1; margin-bottom: 1.2rem; }
+  .quote-text span { color: #60a5fa; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pill { display: inline-flex; align-items: center; gap: 0.3rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.8); }
+
   @media (max-width: 640px) {
     .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
     h1 { font-size: 1.9rem; } h2 { font-size: 1.5rem; }
@@ -87,6 +112,7 @@
 <nav>
   <span class="nav-brand">relif</span>
   <ul class="nav-links">
+    <li><a href="#oportunidad">Oportunidad</a></li>
     <li><a href="#resumen">Resumen</a></li>
     <li><a href="#detalle">Créditos</a></li>
     <li><a href="#breakdown">Breakdown</a></li>
@@ -102,6 +128,54 @@
   <h1>Reporte de<br>Originación de Créditos</h1>
   <p class="lead">Resumen del pipeline de créditos de consumo originados a través de la alianza Relif × Banco Internacional durante el mes de abril 2026.</p>
 </div>
+
+<section class="alt" id="oportunidad">
+  <div class="inner">
+    <div class="label">Contexto — La Oportunidad</div>
+    <h2>El Mercado que Estamos Capturando</h2>
+    <p class="lead">Banco Internacional origina aproximadamente <strong>$400MM mensuales</strong> en créditos de consumo. En este primer período, Relif representó el <strong>~10% de esa originación</strong>.</p>
+
+    <div class="opp-bar-wrap">
+      <div class="opp-bar-label">
+        <span>🔵 Relif — ~10% capturado</span>
+        <span style="color:#94a3b8">90% restante → oportunidad</span>
+      </div>
+      <div class="opp-bar-track">
+        <div class="opp-bar-fill"></div>
+      </div>
+    </div>
+
+    <div class="opp-grid">
+      <div class="opp-card dark">
+        <div class="oc-label">Originación total BI</div>
+        <div class="oc-value">~$400MM</div>
+        <div class="oc-sub">mensual aproximado</div>
+      </div>
+      <div class="opp-card mid">
+        <div class="oc-label">Originado por Relif</div>
+        <div class="oc-value">$69MM</div>
+        <div class="oc-sub">~10% del total · primer período</div>
+      </div>
+      <div class="opp-card lt">
+        <div class="oc-label">Oportunidad potencial</div>
+        <div class="oc-value">$330MM+</div>
+        <div class="oc-sub">aún sin capturar con Relif</div>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-text">
+        Nuestra propuesta no es hacer <span>campañas puntuales</span>. Es convertirnos en el motor permanente de recuperación del <span>carrito abandonado</span> de Banco Internacional — activando automáticamente cada lead que no completó su solicitud de crédito, todos los días.
+      </div>
+      <div class="pill-row">
+        <span class="pill">🔄 Activación continua</span>
+        <span class="pill">🛒 Carrito abandonado</span>
+        <span class="pill">📈 Sin techo de crecimiento</span>
+        <span class="pill">🤖 Automatización total</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="resumen">
   <div class="label">Parte 1 — Resumen</div>
