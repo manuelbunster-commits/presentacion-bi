@@ -47,7 +47,8 @@
   .card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
   .card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
   .card.blue-bg { background: var(--blue-lt); border-color: #bfdbfe; }
-  .card-icon { width: 36px; height: 36px; background: var(--blue-lt); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1rem; }
+  .card-icon { width: 36px; height: 36px; background: var(--blue-lt); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .card-icon svg { width: 18px; height: 18px; stroke: var(--blue); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .card-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light); margin-bottom: 0.4rem; }
   .card-value { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.025em; color: var(--dark); line-height: 1; margin-bottom: 0.35rem; }
   .card-value.xl { font-size: 2.4rem; }
@@ -133,7 +134,7 @@
   <div class="inner">
     <div class="label">Contexto — La Oportunidad</div>
     <h2>Solo el Comienzo</h2>
-    <p class="lead">Banco Internacional cursa <strong>~$400MM mensuales</strong> en créditos de consumo. En este primer período, Relif cursó <strong>$37,1MM</strong> — apenas el <strong>~9%</strong> del total.</p>
+    <p class="lead">Banco Internacional cursa <strong>~$400MM mensuales</strong> en créditos de consumo. En este primer período, Relif cursó <strong>$37,1MM</strong> — el <strong>~9% del total en solo semanas de operación</strong>.</p>
 
     <div class="opp-bar-wrap">
       <div class="opp-bar-label">
@@ -172,13 +173,13 @@
   <p class="lead">Consolidado de originación, incluyendo créditos cursados y montos rechazados por criterios de tasa o riesgo.</p>
   <div class="card-grid-2">
     <div class="card blue-bg">
-      <div class="card-icon">📊</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
       <div class="card-label">Monto Originado Total</div>
       <div class="card-value xl">$69.100.000</div>
       <div class="card-sub blue">cursado + rechazado</div>
     </div>
     <div class="card">
-      <div class="card-icon">✅</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <div class="card-label">Monto Cursado</div>
       <div class="card-value">$37.100.000</div>
       <div class="card-sub green">4 créditos aprobados</div>
@@ -186,13 +187,13 @@
   </div>
   <div class="card-grid-2" style="margin-top:1rem">
     <div class="card">
-      <div class="card-icon">❌</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
       <div class="card-label">Monto Rechazado</div>
       <div class="card-value">$32.000.000</div>
       <div class="card-sub red">por tasa o riesgo</div>
     </div>
     <div class="card">
-      <div class="card-icon">🎯</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
       <div class="card-label">Ticket Promedio</div>
       <div class="card-value">$9.275.000</div>
       <div class="card-sub">por crédito cursado</div>
