@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte de Originación — Banco Internacional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .slide {
+    width: 1100px;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #003087 0%, #0055b3 60%, #0078d4 100%);
+    padding: 2.4rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: 160px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .header-left { position: relative; z-index: 1; }
+  .header-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 0.5rem;
+  }
+  .header-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .header-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 0.4rem;
+    font-weight: 400;
+  }
+  .header-logo {
+    position: relative;
+    z-index: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 0.7rem 1.2rem;
+  }
+  .header-logo img { height: 44px; display: block; }
+
+  /* ── Body ── */
+  .body { padding: 2.4rem 3rem 2.8rem; }
+
+  /* ── KPI Grid ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+  .kpi-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 16px 16px 0 0;
+  }
+  .kpi-card.blue::before  { background: #0055b3; }
+  .kpi-card.green::before { background: #16a34a; }
+  .kpi-card.red::before   { background: #dc2626; }
+  .kpi-card.amber::before { background: #d97706; }
+
+  .kpi-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+    margin-bottom: 0.7rem;
+  }
+  .kpi-value {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .kpi-value.small { font-size: 1.35rem; }
+  .kpi-sub {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.45rem;
+    font-weight: 500;
+  }
+
+  /* ── Section title ── */
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+  }
+
+  /* ── Table ── */
+  .credits-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+  .credits-table thead tr {
+    background: #f1f5f9;
+  }
+  .credits-table th {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  .credits-table th:last-child { text-align: right; }
+  .credits-table th:first-child { border-radius: 10px 0 0 10px; }
+  .credits-table th:last-child  { border-radius: 0 10px 10px 0; }
+  .credits-table td {
+    padding: 0.9rem 1rem;
+    font-size: 0.88rem;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .credits-table td:last-child {
+    text-align: right;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .credits-table td.rut {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+  .credits-table .total-row td {
+    border-bottom: none;
+    border-top: 2px solid #e2e8f0;
+    font-weight: 700;
+    color: #0055b3;
+    font-size: 0.92rem;
+    padding-top: 1rem;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    border-top: 1px solid #f1f5f9;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-note {
+    font-size: 0.72rem;
+    color: #94a3b8;
+  }
+  .footer-brand {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-tag">Reporte de Originación</div>
+      <div class="header-title">Créditos Cursados</div>
+      <div class="header-subtitle">Abril 2026 &nbsp;·&nbsp; Alianza Relif × Banco Internacional</div>
+    </div>
+    <div class="header-logo">
+      <img src="data:image/png;base64,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" alt="Banco Internacional">
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-label">Monto Originado</div>
+        <div class="kpi-value small">$69.100.000</div>
+        <div class="kpi-sub">cursado + rechazado</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Monto Cursado</div>
+        <div class="kpi-value small">$37.100.000</div>
+        <div class="kpi-sub">4 créditos aprobados</div>
+      </div>
+      <div class="kpi-card red">
+        <div class="kpi-label">Monto Rechazado</div>
+        <div class="kpi-value small">$32.000.000</div>
+        <div class="kpi-sub">por tasa o riesgo</div>
+      </div>
+      <div class="kpi-card amber">
+        <div class="kpi-label">Ticket Promedio</div>
+        <div class="kpi-value">$9.275.000</div>
+        <div class="kpi-sub">por crédito cursado</div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="section-title">Detalle de créditos cursados</div>
+    <table class="credits-table">
+      <thead>
+        <tr>
+          <th>RUT</th>
+          <th>Nombre</th>
+          <th>Estado</th>
+          <th>Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rut">9.903.096-8</td>
+          <td>Jaime Fica</td>
+          <td><span class="badge">✓ Cursado</span></td>
+          <td>$6.650.000</td>
+        </tr>
+        <tr>
+          <td class="rut">13.244.326-2</td>
+          <td>Cristina Sanz</td>
+          <td><span class="badge">✓ Cursado</span></td>
+          <td>$14.000.000</td>
+        </tr>
+        <tr>
+          <td class="rut">24.042.847-4</td>
+          <td>Daniel Lopez Chavez</td>
+          <td><span class="badge">✓ Cursado</span></td>
+          <td>$9.150.000</td>
+        </tr>
+        <tr>
+          <td class="rut">19.503.291-2</td>
+          <td>Ian Inostroza</td>
+          <td><span class="badge">✓ Cursado</span></td>
+          <td>$7.300.000</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="3">Total cursado</td>
+          <td>$37.100.000</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-note">Información confidencial · Uso interno Relif × Banco Internacional</div>
+    <div class="footer-brand">RELIF · Abril 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
